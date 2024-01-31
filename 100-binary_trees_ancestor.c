@@ -17,11 +17,16 @@ if (first == second)
 return ((binary_tree_t *)first);
 
 ancestor = (binary_tree_t *)second;
+while (first != NULL)
+{
 while (ancestor != NULL)
 {
-if (binary_tree_is_ancestor(ancestor, first))
+if (first == ancestor)
 return (ancestor);
 ancestor = ancestor->parent;
+}
+ancestor = (binary_tree_t *)second;
+first = first->parent;
 }
 return (NULL);
 }
